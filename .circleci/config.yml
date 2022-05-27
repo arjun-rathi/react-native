@@ -1343,15 +1343,6 @@ workflows:
       # Gather coverage
       - js_coverage
 
-  nightly:
-    unless: << pipeline.parameters.run_package_release_workflow_only >>
-    triggers:
-      - schedule:
-          cron: "0 20 * * *"
-          filters:
-            branches:
-              only:
-                - main
     jobs:
       - nightly_job
 
