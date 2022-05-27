@@ -1342,23 +1342,3 @@ workflows:
 
       # Gather coverage
       - js_coverage
-
-    jobs:
-      - nightly_job
-
-      - prepare_hermes_workspace
-      - build_hermesc_linux:
-          requires:
-            - prepare_hermes_workspace
-      - build_hermes_macos:
-          requires:
-            - prepare_hermes_workspace
-      - build_hermesc_windows:
-          requires:
-            - prepare_hermes_workspace
-      - build_npm_package:
-          publish_npm_args: --nightly
-          requires:
-            - build_hermesc_linux
-            - build_hermes_macos
-            - build_hermesc_windows
